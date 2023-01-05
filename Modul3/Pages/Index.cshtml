@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <form method="post" enctype="multipart/form-data">
+        <label>Podaj nazwę do usunięcia:</label><input name="blobName" type="text" />
+        <input type="file" name="files" id="files" accept="image/png, image/jpeg">
+
+        <label>Podaj nazwę nowego obrazku</label>
+        <input type="text" name="name" id="name">
+
+        <label>Podaj Tag nowego obrazku:</label>
+        <input type="text" name="tag" id="tag">
+
+        <label>Podaj Opis nowego obrazku:</label>
+        <input type="text" name="description" id="description">
+    <button type="submit">Wykonaj</button>
+    </form>
+    @foreach(var blob in Model.blobClients)
+    {
+        <img src="@blob.Uri">
+    }
+</div>
